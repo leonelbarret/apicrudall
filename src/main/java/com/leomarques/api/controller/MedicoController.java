@@ -20,7 +20,7 @@ public class MedicoController {
 
     @GetMapping
     public Page<DadosListagemMedico> listar(Pageable paginacao){
-        return repo.findAllAbyAtivoTrue(paginacao).map(DadosListagemMedico::new);
+        return repo.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
     }
 
     @PostMapping

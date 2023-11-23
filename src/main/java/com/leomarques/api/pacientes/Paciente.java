@@ -20,12 +20,14 @@ public class Paciente {
     private String cpf;
     private String email;
     private String telefone;
+    private Boolean ativo;
 
     @Embedded
     private Endereco endereco;
 
 
     public Paciente(DadosCadastroPaciente dados) {
+        this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.telefone = dados.telefone();
@@ -34,4 +36,20 @@ public class Paciente {
     }
 
 
+    public void atualizarInformacoes(DadosAtualizacaoPaciente dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.telefone() != null) {
+            this.telefone = dados.telefone();
+        }
+
+        if (dados.endereco() != null) {
+            this.endereco.atualizarEndereco(dados.endereco());
+        }
+    }
+
+    public void excluir() {
+        this.ativo = false;
+    }
 }

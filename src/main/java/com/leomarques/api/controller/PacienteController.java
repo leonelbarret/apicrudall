@@ -1,13 +1,7 @@
 package com.leomarques.api.controller;
 
-import com.leomarques.api.medico.DadosCadastroMedico;
-import com.leomarques.api.medico.DadosListagemMedico;
-import com.leomarques.api.medico.Medico;
-import com.leomarques.api.medico.MedicoRepository;
-import com.leomarques.api.pacientes.DadosCadastroPaciente;
-import com.leomarques.api.pacientes.DadosListagemPaciente;
-import com.leomarques.api.pacientes.Paciente;
-import com.leomarques.api.pacientes.PacienteRepository;
+import com.leomarques.api.medico.*;
+import com.leomarques.api.pacientes.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,7 +19,7 @@ public class PacienteController {
 
     @GetMapping
     public Page<DadosListagemPaciente> listar(Pageable paginacao){
-        return repo.findAll(paginacao).map(DadosListagemPaciente::new);
+        return repo.findAllByAtivoTrue(paginacao).map(DadosListagemPaciente::new);
     }
 
     @PostMapping
@@ -33,6 +27,20 @@ public class PacienteController {
     public void cadastrar(@RequestBody @Valid DadosCadastroPaciente dados){
         repo.save(new Paciente(dados));
 
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoPaciente dados){
+        var paciente = repo.getReferenceById(dados.id());
+        paciente.atualizarInformacoes(dados);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void exlcluir(@PathVariable Long id){
+        var paciente = repo.getReferenceById(id);
+        paciente.excluir();
     }
 
 }

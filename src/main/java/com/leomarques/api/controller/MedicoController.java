@@ -1,9 +1,6 @@
 package com.leomarques.api.controller;
 
-import com.leomarques.api.medico.DadosCadastroMedico;
-import com.leomarques.api.medico.DadosListagemMedico;
-import com.leomarques.api.medico.Medico;
-import com.leomarques.api.medico.MedicoRepository;
+import com.leomarques.api.medico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,7 +20,7 @@ public class MedicoController {
 
     @GetMapping
     public Page<DadosListagemMedico> listar(Pageable paginacao){
-        return repo.findAll(paginacao).map(DadosListagemMedico::new);
+        return repo.findAllAbyAtivoTrue(paginacao).map(DadosListagemMedico::new);
     }
 
     @PostMapping
@@ -31,6 +28,20 @@ public class MedicoController {
     public void cadastrar(@RequestBody @Valid DadosCadastroMedico dados){
         repo.save(new Medico(dados));
 
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados){
+        var medico = repo.getReferenceById(dados.id());
+        medico.atualizarInformacoes(dados);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void exlcluir(@PathVariable Long id){
+        var medico = repo.getReferenceById(id);
+        medico.excluir();
     }
 
 }

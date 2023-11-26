@@ -26,6 +26,13 @@ public class MedicoController {
         return ResponseEntity.ok(page);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id){
+        var medico = repo.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
+    }
+
+
     @PostMapping
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriBuilder){

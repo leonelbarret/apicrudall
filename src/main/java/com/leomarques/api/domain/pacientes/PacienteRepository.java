@@ -1,6 +1,5 @@
-package com.leomarques.api.pacientes;
+package com.leomarques.api.domain.pacientes;
 
-import com.leomarques.api.medico.Medico;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

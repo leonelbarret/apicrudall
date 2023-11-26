@@ -1,8 +1,7 @@
 package com.leomarques.api.controller;
 
-import com.leomarques.api.medico.*;
-import com.leomarques.api.pacientes.*;
-import com.leomarques.apmedico.DadosDetalhamentoMedico;
+import com.leomarques.api.domain.pacientes.*;
+import com.leomarques.api.domain.pacientes.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

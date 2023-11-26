@@ -1,4 +1,4 @@
-package com.leomarques.api.medico;
+package com.leomarques.api.domain.medico;
 
 public enum Especialidade {
 

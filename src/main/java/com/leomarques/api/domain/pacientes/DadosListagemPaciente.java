@@ -1,7 +1,4 @@
-package com.leomarques.api.pacientes;
-
-import com.leomarques.api.medico.Especialidade;
-import com.leomarques.api.medico.Medico;
+package com.leomarques.api.domain.pacientes;
 
 public record DadosListagemPaciente(String nome, String email, String cpf) {
 

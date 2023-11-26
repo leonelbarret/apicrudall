@@ -1,6 +1,6 @@
-package com.leomarques.api.medico;
+package com.leomarques.api.domain.medico;
 
-import com.leomarques.api.endereco.Endereco;
+import com.leomarques.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

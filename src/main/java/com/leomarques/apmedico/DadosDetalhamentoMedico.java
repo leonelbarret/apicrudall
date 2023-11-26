@@ -1,8 +1,8 @@
 package com.leomarques.apmedico;
 
-import com.leomarques.api.endereco.Endereco;
-import com.leomarques.api.medico.Especialidade;
-import com.leomarques.api.medico.Medico;
+import com.leomarques.api.domain.endereco.Endereco;
+import com.leomarques.api.domain.medico.Especialidade;
+import com.leomarques.api.domain.medico.Medico;
 
 public record DadosDetalhamentoMedico(Long id, String nome, String email, String crm, String telefone,Especialidade especialidade, Endereco endereco) {
 

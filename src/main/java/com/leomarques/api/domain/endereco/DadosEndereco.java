@@ -1,4 +1,4 @@
-package com.leomarques.api.endereco;
+package com.leomarques.api.domain.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

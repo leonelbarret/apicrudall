@@ -1,6 +1,6 @@
-package com.leomarques.api.pacientes;
+package com.leomarques.api.domain.pacientes;
 
-import com.leomarques.api.endereco.Endereco;
+import com.leomarques.api.domain.endereco.Endereco;
 
 public record DadosDetalhamentoPaciente(Long id, String nome, String cpf,String email, String telefone, Endereco endereco) {
 

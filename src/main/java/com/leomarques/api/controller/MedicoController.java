@@ -1,6 +1,7 @@
 package com.leomarques.api.controller;
 
-import com.leomarques.api.medico.*;
+import com.leomarques.api.domain.medico.*;
+import com.leomarques.api.domain.medico.*;
 import com.leomarques.apmedico.DadosDetalhamentoMedico;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("medicos")

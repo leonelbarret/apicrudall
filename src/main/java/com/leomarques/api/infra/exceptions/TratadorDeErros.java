@@ -1,4 +1,4 @@
-package com.leomarques.api.infra;
+package com.leomarques.api.infra.exceptions;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
